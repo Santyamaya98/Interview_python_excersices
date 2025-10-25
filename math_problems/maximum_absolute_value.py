@@ -1,4 +1,3 @@
-
 def max_abs_val(n,m):
     """
     Given two integers n and m (m != 0). The problem is to find 
@@ -41,10 +40,7 @@ def max_abs_val(n,m):
                 return output_a
             else:
                 return output_b
-        n -= 1 
-        if n <= 0:
-            break
-    return min(output_a, output_b), print(case_a,case_b)
+ 
 
 if __name__ == "__main__":
     n,m = input('n = '), input('m = ')
