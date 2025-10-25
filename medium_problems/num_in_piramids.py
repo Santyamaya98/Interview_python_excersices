@@ -17,15 +17,24 @@ def num_piramid(n):
     pattern = []
     x = n
     counter = 0
-    repeater = 0 
-    while x>0:
+    repeater = 0
+    p = n
+    while x > 0:
         pattern.append(x)
         output.append(x)
         counter += 1
-        if counter == x:
+        if counter == n:
             x -= 1
             counter = 0
-
+            repeater += 1
+        if repeater == p:
+            repeater = 0
+            output.append(-1)
+            pattern.append("\n")
+            n -= 1
+            x = p
+        if  n == 0:
+            break
     result_pattern = ",".join(str(patr) for patr in pattern)
     result_output = ",".join(str(out) for out in output)
     return print(result_pattern, result_output)
