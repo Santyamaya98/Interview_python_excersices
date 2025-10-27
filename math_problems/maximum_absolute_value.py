@@ -18,30 +18,20 @@ def max_abs_val(n,m):
         return 'n and m must be != 0'
     if n % m == 0:
         return n
-    case_a = []
-    true_n = n
-    pos = n
-    neg = n
-    case_b = []
-    output_a, output_b = int(), int()
-    while True:
-        pos += 1
-        neg -= 1 
-        if pos % m == 0:
-            case_a.append(pos)
-        if neg % m == 0:
-            case_b.append(neg)
-        if len(case_a) > 0 and len(case_b) > 0:
-            if abs(case_a[-1]) < abs(case_b[-1]):
-                output_a = abs(case_a[-1])
-            else: 
-                output_b = abs(case_b[-1])
-            if (output_a - n) < (output_b - n) and len(case_a) > n or len(case_b) > n:
-                return output_a
-            else:
-                return output_b
- 
+    rem = n // m
+    
+    high = (1+rem) * m
+    low = rem * m
 
+    dist_a = abs(high - n)
+    dist_b = abs(low - n)
+
+    if dist_b < dist_a:
+        return low
+    elif dist_b > dist_a:
+        return high
+
+    return high if dist_a > dist_b else low 
 if __name__ == "__main__":
     n,m = input('n = '), input('m = ')
     print(max_abs_val(n,m))
