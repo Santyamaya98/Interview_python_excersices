@@ -32,7 +32,8 @@ def find_jump_n(n):
     return n
 
 class Solution:
-    def jumpingNums(self, n):
+    def jumpingNums(n):
+        n = int(n)
         if n <= 10:
             return n
         
@@ -44,18 +45,22 @@ class Solution:
             if num > n:
                 continue
             max_jump = max(max_jump, num)
-            
+            #print(f'max_jump: {max_jump}')
             last_digit = num % 10
+            #print(f'last_digit: {last_digit}')
             # Append next possible digits
             for next_digit in [last_digit - 1, last_digit + 1]:
+                #print(f'next_digit: {next_digit}')
                 if 0 <= next_digit <= 9:
                     new_num = num * 10 + next_digit
                     if new_num <= n:
                         queue.append(new_num)
         
-        return max_jump   
+        return print(max_jump)   
 
 
 if __name__ == "__main__":
     n = input('type an integer --->  ')
     print(find_jump_n(n))
+    obj = Solution.jumpingNums(n)
+    obj
