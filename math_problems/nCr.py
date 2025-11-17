@@ -38,6 +38,31 @@ class Solution:
         # 3. Recursive Step (Pascal's Identity)
         # This works correctly due to lru_cache memoization.
         return self.nCr_ia(n - 1, r - 1) + self.nCr_ia(n - 1, r)
+    
+    def nCr_memo(self, n, r, memo=None):
+        """
+        Calculates C(n,r) using Pascal's Identity and manual memoization.
+        """
+        if memo is None:
+            memo = {} # Initialize the cache on the first call
+        
+        # 1. Check the Cache (Tuple (n, r) is used as the key)
+        if (n, r) in memo:
+            return memo[(n, r)]
+
+        # Base Cases
+        if r < 0 or r > n:
+            return 0
+        if r == 0 or r == n:
+            return 1
+
+        # Recursive Step
+        result = self.nCr_memo(n - 1, r - 1, memo) + self.nCr_memo(n - 1, r, memo)
+        
+        # 2. Store the Result in the Cache
+        memo[(n, r)] = result
+        
+        return result
         
         
 if __name__=="__main__":
