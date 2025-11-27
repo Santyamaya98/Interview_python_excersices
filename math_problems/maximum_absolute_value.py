@@ -35,3 +35,4 @@ def max_abs_val(n,m):
 if __name__ == "__main__":
     n,m = input('n = '), input('m = ')
     print(max_abs_val(n,m))
+#68 136 930 803
