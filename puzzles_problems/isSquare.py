@@ -9,17 +9,17 @@ class Solution:
         h = (x1 + x2), (x3+x4)
         l = (y1 + y2), (y3+y4)
 
-        #print(f'h: {h}, l: {l}')
+        print(f'h: {h}, l: {l}')
 
         differenceh = (x1 + x2) - (x3+x4)
         differencel = (y1 + y2) - (y3+y4)
 
-        #print(f'dh: {differenceh}, dl: {differencel}')
+        print(f'dh: {differenceh}, dl: {differencel}')
 
         diagh = ((x1+x3)**2 + (y1+y3) **2)**0.5
         diagl = ((x2+x4)**2 + (y2+y4) **2)**0.5
 
-        #print(f'diagh: {diagh}, diagl {diagl}')
+        print(f'diagh: {diagh}, diagl {diagl}')
         return "Yes" if h == l or diagh==diagl else "No"
 
 
